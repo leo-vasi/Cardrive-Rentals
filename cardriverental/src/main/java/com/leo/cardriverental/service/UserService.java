@@ -1,8 +1,9 @@
-package com.leo.service;
+package com.leo.cardriverental.service;
 
 
-import com.leo.model.User;
-import com.leo.repository.UserRepository;
+import com.leo.cardriverental.model.User;
+
+import com.leo.cardriverental.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,8 +25,11 @@ public class UserService {
     }
 
     public List<User> getAllUsers() {
-        return userRepository.findAll();
+        List<User> users = userRepository.findAll();
+        System.out.println("Retrieved users: " + users);
+        return users;
     }
+
 
     public Optional<User> getUserById(Long userId) {
         return userRepository.findById(userId);
@@ -48,15 +52,22 @@ public class UserService {
         return userRepository.existsByEmail(email);
     }
 
-    public boolean changeUserStatus (Long userId, String newStatus) {
+    public boolean changeUserStatus(Long userId, String newStatus) {
         Optional<User> optionalUser = userRepository.findById(userId);
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
-            user.setStatus(User.Status.valueOf(newStatus.toUpperCase()));
-            userRepository.save(user);
-            return true;
+            try {
+                User.Status status = User.Status.valueOf(newStatus.toUpperCase());
+                user.setStatus(status);
+                userRepository.save(user);
+                return true;
+            } catch (IllegalArgumentException e) {
+                return false;
+            }
         }
         return false;
     }
+
+
 
 }

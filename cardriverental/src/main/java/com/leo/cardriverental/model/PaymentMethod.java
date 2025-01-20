@@ -1,4 +1,4 @@
-package com.leo.model;
+package com.leo.cardriverental.model;
 
 import jakarta.persistence.*;
 import lombok.*;

@@ -1,10 +1,13 @@
-package com.leo.repository;
+package com.leo.cardriverental.repository;
 
-import com.leo.model.Employee;
+
+import com.leo.cardriverental.model.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
     List<Employee> findByRole(Employee.Role role);

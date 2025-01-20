@@ -1,4 +1,4 @@
-package com.leo.model;
+package com.leo.cardriverental.model;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -47,7 +47,7 @@ public class Vehicle {
     private String color;
 
     @Column(name = "vehicle_price_per_day", nullable = false)
-    private BigDecimal vehiclePricePerDay;
+    private BigDecimal pricePerDay;
 
     @Column(name = "vehicle_availability_status", nullable = false)
     private AvailabilityStatus availabilityStatus;

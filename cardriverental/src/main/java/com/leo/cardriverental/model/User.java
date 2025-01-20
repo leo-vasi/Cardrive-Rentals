@@ -1,4 +1,4 @@
-package com.leo.model;
+package com.leo.cardriverental.model;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -8,9 +8,11 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@MappedSuperclass
 @Getter
 @Setter
+@Entity
+@Inheritance
+@Table(name = "users")
 public class User {
 
     public enum Gender {
@@ -50,7 +52,17 @@ public class User {
     @Column(name = "user_password", nullable = false, length = 255)
     private String password;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "user_status", nullable = false)
     private Status status;
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
 
 }

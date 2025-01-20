@@ -1,4 +1,4 @@
-package com.leo.model;
+package com.leo.cardriverental.model;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -11,8 +11,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@Table(name = "employee")
-public class Employee extends User{
+public class Employee extends User {
 
     public enum Role {
         ADMINISTRATOR, MANAGER, OPERATOR
@@ -22,6 +21,5 @@ public class Employee extends User{
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @OneToMany(mappedBy = "handledBy", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Rental> handledRentals;
+
 }

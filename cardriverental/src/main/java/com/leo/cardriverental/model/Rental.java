@@ -1,4 +1,4 @@
-package com.leo.model;
+package com.leo.cardriverental.model;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -36,10 +36,10 @@ public class Rental {
     private PaymentMethod paymentMethod;
 
     @Column(name = "rental_start_date", nullable = false)
-    private LocalDate startDate;
+    private LocalDate rentalStartDate;
 
-    @Column(name = "rental_return_date", nullable = false)
-    private LocalDate endDate;
+    @Column(name = "rental_end_date", nullable = false)
+    private LocalDate rentalEndDate;
 
     @Column(name = "rental_return_date")
     private LocalDate returnDate;
@@ -59,6 +59,13 @@ public class Rental {
 
     @Column(name = "rental_altered_at")
     private LocalDate alteredAt;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "rental_status")
+    private RentalStatus status;
+
+
+
 
     @PreUpdate
     public void updateTimestamp() {
