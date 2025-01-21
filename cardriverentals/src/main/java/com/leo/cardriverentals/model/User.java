@@ -1,17 +1,20 @@
-package com.leo.cardriverental.model;
+package com.leo.cardriverentals.model;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
 @Entity
-@Inheritance
+@Inheritance(strategy = InheritanceType.JOINED)
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Table(name = "users")
 public class User {
 
@@ -25,17 +28,15 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "user_id")
+    private Long userId;
 
-    @Column(name = "user_name", nullable = false, length = 50)
+    @Column(name = "user_name", nullable = false, length = 100)
     private String name;
-
-    @Column(name = "user_surname", nullable = false, length = 50)
-    private String surname;
 
     @Column(name = "user_gender", nullable = false)
     @Enumerated(EnumType.STRING)
-    private Gender gender;
+    private Gender gender = Gender.O;
 
     @Column(name = "user_birth_date", nullable = false)
     private LocalDate birthDate;
@@ -43,7 +44,7 @@ public class User {
     @Column(name = "user_cpf", nullable = false, unique = true, length = 11)
     private String cpf;
 
-    @Column(name = "user_phone", nullable = true, length = 15)
+    @Column(name = "user_phone", nullable = false, length = 15)
     private String phone;
 
     @Column(name = "user_email", unique = true, nullable = false, length = 50)
@@ -54,15 +55,12 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "user_status", nullable = false)
-    private Status status;
+    private Status status = Status.ACTIVE;
 
-    public Status getStatus() {
-        return status;
-    }
+    @Column(name = "user_created_at", updatable = false, insertable = false)
+    private LocalDateTime createdAt;
 
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
+    @Column(name = "user_altered_at", insertable = false)
+    private LocalDateTime alteredAt;
 
 }

@@ -1,10 +1,10 @@
-package com.leo.cardriverental;
+package com.leo.cardriverentals;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CardriverentalApplicationTests {
+class CardriverentalsApplicationTests {
 
 	@Test
 	void contextLoads() {
