@@ -1,4 +1,11 @@
 package com.leo.cardriverentals.model;
 
-public class Customer extends User{
+import jakarta.persistence.*;
+import lombok.Data;
+
+@Entity
+@Data
+@Table(name = "customers")
+public class Customer extends User {
+
 }
