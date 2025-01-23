@@ -1,5 +1,6 @@
 package com.leo.cardriverentals.service;
 
+import com.leo.cardriverentals.dto.UserDTO;
 import com.leo.cardriverentals.model.User;
 import com.leo.cardriverentals.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,5 +20,9 @@ public class UserService {
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    public List<UserDTO> getAllUserDetails() {
+        return userRepository.findAllUserDetails();
     }
 }

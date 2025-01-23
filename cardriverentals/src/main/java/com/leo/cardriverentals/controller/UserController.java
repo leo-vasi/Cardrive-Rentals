@@ -1,5 +1,6 @@
 package com.leo.cardriverentals.controller;
 
+import com.leo.cardriverentals.dto.UserDTO;
 import com.leo.cardriverentals.model.User;
 import com.leo.cardriverentals.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,16 @@ public class UserController {
             return ResponseEntity.noContent().build();
         } else {
             return ResponseEntity.ok(users);
+        }
+    }
+
+    @GetMapping("/details")
+    public ResponseEntity<List<UserDTO>> getAllUserDetails() {
+        List<UserDTO> userDetails = userService.getAllUserDetails();
+        if (userDetails.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(userDetails);
         }
     }
 }
