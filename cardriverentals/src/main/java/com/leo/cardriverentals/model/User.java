@@ -2,6 +2,8 @@ package com.leo.cardriverentals.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -57,10 +59,12 @@ public class User {
     @Column(name = "user_status", nullable = false)
     private Status status = Status.ACTIVE;
 
-    @Column(name = "user_created_at", updatable = false, insertable = false)
+    @CreationTimestamp
+    @Column(name = "user_created_at", updatable = false)
     private LocalDateTime createdAt;
 
-    @Column(name = "user_altered_at", insertable = false)
+    @UpdateTimestamp
+    @Column(name = "user_altered_at")
     private LocalDateTime alteredAt;
 
 }
