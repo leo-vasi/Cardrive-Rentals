@@ -1,14 +1,9 @@
 package com.leo.cardriverentals.dto;
 
-import com.leo.cardriverentals.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import com.leo.cardriverentals.model.User.Status;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Getter
 @Setter

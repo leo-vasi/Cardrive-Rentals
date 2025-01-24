@@ -1,5 +1,6 @@
 package com.leo.cardriverentals.controller;
 
+import com.leo.cardriverentals.dto.VehicleDTO;
 import com.leo.cardriverentals.model.Vehicle;
 import com.leo.cardriverentals.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +23,18 @@ public class VehicleController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Vehicle>> getAllVehicles() {
-        List<Vehicle> vehicles = vehicleService.getAllVehicles();
+    public ResponseEntity<List<VehicleDTO>> getAllVehicles() {
+        List<VehicleDTO> vehicles = vehicleService.getAllVehicles();
+        if (vehicles.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(vehicles);
+        }
+    }
+
+    @GetMapping("/details")
+    public ResponseEntity<List<Vehicle>> getAllVehiclesDetails() {
+        List<Vehicle> vehicles = vehicleService.getAllVehiclesDetails();
         if (vehicles.isEmpty()) {
             return ResponseEntity.noContent().build();
         } else {

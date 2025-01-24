@@ -1,5 +1,6 @@
 package com.leo.cardriverentals.service;
 
+import com.leo.cardriverentals.dto.VehicleDTO;
 import com.leo.cardriverentals.model.Vehicle;
 import com.leo.cardriverentals.repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,11 @@ public class VehicleService {
         this.vehicleRepository = vehicleRepository;
     }
 
-    public List<Vehicle> getAllVehicles() {
+    public List<VehicleDTO> getAllVehicles() {
+        return vehicleRepository.findAllVehicles();
+    }
+
+    public List<Vehicle> getAllVehiclesDetails() {
         return vehicleRepository.findAll();
     }
 }
