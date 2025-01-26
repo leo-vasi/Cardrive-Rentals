@@ -18,7 +18,7 @@ public class Address {
     private Long addressId;
 
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @Column(name = "num", length = 10)
