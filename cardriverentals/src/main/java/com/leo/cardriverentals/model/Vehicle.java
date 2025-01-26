@@ -2,6 +2,7 @@ package com.leo.cardriverentals.model;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -32,15 +33,18 @@ public class Vehicle {
     @Column(name = "vehicle_id", nullable = false)
     private Long vehicleId;
 
+    @Size(max = 50)
     @Column(name = "vehicle_model", nullable = false, length = 50)
     private String model;
 
+    @Size(max = 50)
     @Column(name = "vehicle_brand", nullable = false, length = 50)
     private String brand;
 
     @Column(name = "vehicle_year", nullable = false)
     private int year;
 
+    @Size(max = 7)
     @Column(name = "vehicle_license_plate", nullable = false, length = 7, unique = true)
     private String licencePlate;
 
@@ -48,6 +52,7 @@ public class Vehicle {
     @Column(name = "vehicle_category", nullable = false)
     private VehicleCategory vehicleCategory;
 
+    @Size(max = 30)
     @Column(name = "vehicle_color", length = 30)
     private String color;
 
