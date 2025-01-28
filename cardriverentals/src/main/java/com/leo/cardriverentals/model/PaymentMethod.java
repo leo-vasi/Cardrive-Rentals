@@ -2,6 +2,9 @@ package com.leo.cardriverentals.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -9,6 +12,9 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "payment_methods")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class PaymentMethod {
 
     public enum PaymentType {

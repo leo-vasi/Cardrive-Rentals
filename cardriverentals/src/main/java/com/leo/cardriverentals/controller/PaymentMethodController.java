@@ -4,6 +4,7 @@ import com.leo.cardriverentals.model.PaymentMethod;
 import com.leo.cardriverentals.service.PaymentMethodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,6 +21,7 @@ public class PaymentMethodController {
         this.paymentMethodService = paymentMethodService;
     }
 
+    @GetMapping
     public ResponseEntity<List<PaymentMethod>> getAllPaymentMethods() {
         List<PaymentMethod> paymentMethods = paymentMethodService.getAllPaymentMethods();
         if (paymentMethods.isEmpty()) {
