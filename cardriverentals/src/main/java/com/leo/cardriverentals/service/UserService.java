@@ -25,4 +25,8 @@ public class UserService {
     public List<UserDTO> getAllUserDetails() {
         return userRepository.findAllUserDetails();
     }
+
+    public User createUser(User user) {
+        return userRepository.save(user);
+    }
 }
