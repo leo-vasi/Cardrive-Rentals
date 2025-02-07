@@ -30,4 +30,8 @@ public class VehicleService {
     public Optional<Vehicle> getVehicleById(Long vehicleId) {
         return vehicleRepository.findById(vehicleId);
     }
+
+    public Vehicle createVehicle(Vehicle vehicle) {
+        return vehicleRepository.save(vehicle);
+    }
 }
