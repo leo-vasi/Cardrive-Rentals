@@ -3,6 +3,7 @@ package com.leo.cardriverentals.controller;
 import com.leo.cardriverentals.dto.VehicleDTO;
 import com.leo.cardriverentals.model.Vehicle;
 import com.leo.cardriverentals.service.VehicleService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -53,7 +54,7 @@ public class VehicleController {
     }
 
     @PostMapping
-    public ResponseEntity<Vehicle> createVehicle (@RequestBody Vehicle vehicle) {
+    public ResponseEntity<Vehicle> createVehicle (@Valid @RequestBody Vehicle vehicle) {
         Vehicle createVehicle = vehicleService.createVehicle(vehicle);
         return ResponseEntity.status(HttpStatus.CREATED).body(createVehicle);
     }
