@@ -43,9 +43,9 @@ public class VehicleController {
         }
     }
 
-    @GetMapping("/{vehicleId}")
-    public ResponseEntity<Vehicle> getVehicleById(@PathVariable Long vehicleId) {
-        Optional<Vehicle> vehicle = vehicleService.getVehicleById(vehicleId);
+    @GetMapping("/{id}")
+    public ResponseEntity<Vehicle> getVehicleById(@PathVariable Long id) {
+        Optional<Vehicle> vehicle = vehicleService.getVehicleById(id);
         if (vehicle.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         } else {
