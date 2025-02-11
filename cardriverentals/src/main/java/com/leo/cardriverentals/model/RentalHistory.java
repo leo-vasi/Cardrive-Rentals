@@ -6,7 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Entity
 @Getter
@@ -26,13 +28,15 @@ public class RentalHistory {
     private Customer customer;
 
     @Column(name = "rental_date", nullable = false)
-    private LocalDateTime rentalDate;
+    private Instant rentalDate;
 
     @Column(name = "return_date")
-    private LocalDateTime returnDate;
+    private Optional<Instant> returnDate = Optional.empty();
 
-    @Column(name = "vehicle_id", nullable = false)
-    private Long vehicleId;
+    @ManyToOne
+    @JoinColumn(name = "vehicle_id", nullable = false)
+    private Vehicle vehicle;
+
 
     @Column(name = "rental_status", nullable = false)
     @Enumerated(EnumType.STRING)
