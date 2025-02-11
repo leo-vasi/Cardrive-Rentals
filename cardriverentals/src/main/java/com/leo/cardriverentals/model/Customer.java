@@ -17,5 +17,5 @@ public class Customer extends User {
     private List<RentalHistory> rentalHistory;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<LoginHistory> loginHistory;
+    private List<CredentialHistory> loginHistory;
 }
