@@ -29,5 +29,23 @@ public class RentalHistoryService {
     public RentalHistory saveRentalHistory(RentalHistory rentalHistory) {
         return rentalHistoryRepository.save(rentalHistory);
     }
+
+    public RentalHistory createRentalHistory(RentalHistory rentalHistory) {
+        return rentalHistoryRepository.save(rentalHistory);
+    }
+
+    public RentalHistory updateRentalHistory(Long id, RentalHistory rentalHistory) {
+        RentalHistory existingRentalHistory = rentalHistoryRepository.findById(id).orElseThrow(() -> new RuntimeException("RentalHistory Not Found"));
+        existingRentalHistory.setCustomer(rentalHistory.getCustomer());
+        existingRentalHistory.setRentalDate(rentalHistory.getRentalDate());
+        existingRentalHistory.setReturnDate(rentalHistory.getReturnDate());
+        existingRentalHistory.setVehicle(rentalHistory.getVehicle());
+        existingRentalHistory.setStatus(rentalHistory.getStatus());
+        return rentalHistoryRepository.save(existingRentalHistory);
+    }
+
+    public void deleteRentalHistory(Long id) {
+        rentalHistoryRepository.deleteById(id);
+    }
 }
 
