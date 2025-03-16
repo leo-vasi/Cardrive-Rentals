@@ -26,10 +26,6 @@ public class RentalHistoryService {
         return rentalHistoryRepository.findById(id);
     }
 
-    public RentalHistory saveRentalHistory(RentalHistory rentalHistory) {
-        return rentalHistoryRepository.save(rentalHistory);
-    }
-
     public RentalHistory createRentalHistory(RentalHistory rentalHistory) {
         return rentalHistoryRepository.save(rentalHistory);
     }
