@@ -1,7 +1,6 @@
 package com.leo.cardriverentals.controller;
 
 import com.leo.cardriverentals.model.Address;
-import com.leo.cardriverentals.model.Rental;
 import com.leo.cardriverentals.service.AddressService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
