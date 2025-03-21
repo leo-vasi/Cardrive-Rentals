@@ -13,7 +13,6 @@ import java.time.LocalDateTime;
 @Inheritance(strategy = InheritanceType.JOINED)
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -53,17 +52,6 @@ public class User {
     @Column(name = "user_cpf", nullable = false, unique = true, length = 11)
     private String cpf;
 
-    @NotBlank(message = "O telefone não pode estar em branco")
-    @Pattern(regexp = "\\d{10,15}", message = "O telefone deve ter entre 10 e 15 números")
-    @Column(name = "user_phone", nullable = false, length = 15)
-    private String phone;
-
-    @NotBlank(message = "O e-mail não pode estar em branco")
-    @Email(message = "Formato de e-mail inválido")
-    @Size(max = 50, message = "O e-mail deve ter no máximo 50 caracteres")
-    @Column(name = "user_email", unique = true, nullable = false, length = 50)
-    private String email;
-
     @NotBlank(message = "A senha não pode estar em branco")
     @Size(min = 8, max = 255, message = "A senha deve ter entre 8 e 255 caracteres")
     @Column(name = "user_password", nullable = false, length = 255)
@@ -72,6 +60,9 @@ public class User {
     @Size(max = 255, message = "O caminho da foto deve ter no máximo 255 caracteres")
     @Column(name = "user_profile_picture", nullable = true, length = 255)
     private String userProfilePicture;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Contact contact;
 
     @NotNull(message = "O status do usuário não pode ser nulo")
     @Enumerated(EnumType.STRING)
