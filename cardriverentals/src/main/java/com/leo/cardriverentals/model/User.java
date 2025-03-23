@@ -19,13 +19,8 @@ import java.time.LocalDateTime;
 @Table(name = "users")
 public class User {
 
-    public enum Gender {
-        M, F, O
-    }
-
-    public enum Status {
-        ACTIVE, INACTIVE
-    }
+    public enum Gender { M, F, O }
+    public enum Status { ACTIVE, INACTIVE }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,8 +33,8 @@ public class User {
     private String name;
 
     @NotNull(message = "O gênero não pode ser nulo")
-    @Column(name = "user_gender", nullable = false)
     @Enumerated(EnumType.STRING)
+    @Column(name = "user_gender", nullable = false)
     private Gender gender = Gender.O;
 
     @NotNull(message = "A data de nascimento não pode ser nula")
@@ -57,12 +52,12 @@ public class User {
     @Column(name = "user_password", nullable = false, length = 255)
     private String password;
 
-    @Size(max = 255, message = "O caminho da foto deve ter no máximo 255 caracteres")
-    @Column(name = "user_profile_picture", nullable = true, length = 255)
-    private String userProfilePicture;
-
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Contact contact;
+
+    @Size(max = 255, message = "O caminho da foto deve ter no máximo 255 caracteres")
+    @Column(name = "user_profile_picture", length = 255)
+    private String userProfilePicture;
 
     @NotNull(message = "O status do usuário não pode ser nulo")
     @Enumerated(EnumType.STRING)
@@ -77,3 +72,4 @@ public class User {
     @Column(name = "user_altered_at")
     private LocalDateTime alteredAt;
 }
+

@@ -36,8 +36,6 @@ public class CustomerService {
         existingCustomer.setGender(customer.getGender());
         existingCustomer.setBirthDate(customer.getBirthDate());
         existingCustomer.setCpf(customer.getCpf());
-        existingCustomer.setPhone(customer.getPhone());
-        existingCustomer.setEmail(customer.getEmail());
         existingCustomer.setPassword(customer.getPassword());
         existingCustomer.setRentalHistory(customer.getRentalHistory());
         existingCustomer.setLoginHistory(customer.getLoginHistory());

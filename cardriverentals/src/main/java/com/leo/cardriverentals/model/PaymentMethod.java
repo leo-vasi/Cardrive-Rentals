@@ -9,12 +9,12 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "payment_methods")
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "payment_methods")
 public class PaymentMethod {
 
     public enum PaymentType {

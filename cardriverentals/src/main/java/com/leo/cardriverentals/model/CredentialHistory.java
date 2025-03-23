@@ -19,10 +19,10 @@ public class CredentialHistory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "history_id")
-    private Long id;
+    private Long historyId;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private Customer customer;
 
     @Column(name = "old_email_hash", nullable = false, length = 255)

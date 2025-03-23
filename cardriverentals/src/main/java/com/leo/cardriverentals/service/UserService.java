@@ -41,8 +41,6 @@ public class UserService {
         existingUser.setGender(user.getGender());
         existingUser.setBirthDate(user.getBirthDate());
         existingUser.setCpf(user.getCpf());
-        existingUser.setPhone(user.getPhone());
-        existingUser.setEmail(user.getEmail());
         existingUser.setPassword(user.getPassword());
         existingUser.setUserProfilePicture(user.getUserProfilePicture());
         existingUser.setStatus(user.getStatus());

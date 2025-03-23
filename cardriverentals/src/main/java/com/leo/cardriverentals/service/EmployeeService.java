@@ -36,8 +36,6 @@ public class EmployeeService {
         existingEmployee.setGender(employee.getGender());
         existingEmployee.setBirthDate(employee.getBirthDate());
         existingEmployee.setCpf(employee.getCpf());
-        existingEmployee.setPhone(employee.getPhone());
-        existingEmployee.setEmail(employee.getEmail());
         existingEmployee.setPassword(employee.getPassword());
         existingEmployee.setUserProfilePicture(employee.getUserProfilePicture());
         existingEmployee.setStatus(employee.getStatus());

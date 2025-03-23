@@ -15,8 +15,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     SELECT new com.leo.cardriverentals.dto.UserDTO(
         u.userId,
         u.name,
-        u.email,
-        u.phone,
         CASE
             WHEN TYPE(u) = Customer THEN 'Customer'
             WHEN TYPE(u) = Employee THEN 'Employee'
