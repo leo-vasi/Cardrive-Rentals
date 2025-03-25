@@ -49,7 +49,7 @@ public class Vehicle {
     private int year;
 
     @NotBlank(message = "A placa do veículo é obrigatória")
-    @Pattern(regexp = "^[A-Z]{3}\\d[A-Z0-9]\\d{2}$", message = "A placa deve estar no formato correto (ex: ABC1D23)")
+    @Pattern(regexp = "^[A-Z]{3}\\d{4}$", message = "A placa deve estar no formato AAA9999")
     @Size(max = 7, message = "A placa do veículo deve ter exatamente 7 caracteres")
     @Column(name = "vehicle_license_plate", nullable = false, length = 7, unique = true)
     private String licencePlate;

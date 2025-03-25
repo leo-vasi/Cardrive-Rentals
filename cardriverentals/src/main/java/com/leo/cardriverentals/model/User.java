@@ -1,5 +1,6 @@
 package com.leo.cardriverentals.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
@@ -53,6 +54,7 @@ public class User {
     private String password;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @JsonManagedReference
     private Contact contact;
 
     @Size(max = 255, message = "O caminho da foto deve ter no máximo 255 caracteres")

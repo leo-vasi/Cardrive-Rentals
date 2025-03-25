@@ -1,6 +1,7 @@
 package com.leo.cardriverentals.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,7 @@ public class RentalHistory {
     private Customer customer;
 
     @Column(name = "rental_date", nullable = false)
+    @NotNull(message = "A data de aluguel é obrigatória")
     private LocalDateTime rentalDate;
 
     @Column(name = "return_date")
@@ -36,6 +38,7 @@ public class RentalHistory {
     private Vehicle vehicle;
 
     @Column(name = "rental_status", nullable = false)
+    @NotNull(message = "O status do aluguel é obrigatório")
     @Enumerated(EnumType.STRING)
     private Rental.RentalStatus status;
 }

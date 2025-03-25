@@ -1,5 +1,6 @@
 package com.leo.cardriverentals.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -25,6 +26,7 @@ public class Contact {
 
     @OneToOne
     @JoinColumn(name = "user_id", nullable = false)
+    @JsonBackReference
     private User user;
 
     @NotBlank(message = "O telefone não pode estar em branco")
